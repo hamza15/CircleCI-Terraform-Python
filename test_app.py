@@ -1,10 +1,10 @@
-import app
+import hello_world
 import unittest
 
-class AppTest(unittest.TestCase)
+class TestHelloWorld(unittest.TestCase):
 
-    def config(self):
-        self.app = app.app.test_client()
+    def setUp(self):
+        self.app = hello_world.app.test_client()
         self.app.testing = True
 
     def test_status_code(self):
@@ -12,8 +12,8 @@ class AppTest(unittest.TestCase)
         self.assertEqual(response.status_code, 200)
     
     def test_greeting_message(self):
-        greeting = 'Hello World from BenchSci!'
-        self.assertEqual(app.greet(), greeting)
+        greeting = 'Welcome to CI/CD'
+        self.assertEqual(hello_world.greet(), greeting)
 
 if __name__ == '__main__':
     unittest.main()
