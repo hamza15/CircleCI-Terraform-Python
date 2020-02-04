@@ -13,7 +13,7 @@ class TestHelloWorld(unittest.TestCase):
         
     def test_greeting_message(self):
         greeting = 'Hello World from BenchSci!'
-        self.assertEqual(hello_world.greet(), greeting)
+        self.assertEqual(hello_world.helloIndex(), greeting)
         
 
 if __name__ == '__main__':
