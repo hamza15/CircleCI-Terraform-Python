@@ -21,7 +21,7 @@ def greet():
     greeting = 'Hello World from BenchSci!'
     return greeting
 
-@app.route('/')
+@app.route('/hello')
 def hello_world():
     html = generate_html(greet())
     return html
