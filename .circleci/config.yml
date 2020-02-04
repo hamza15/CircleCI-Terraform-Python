@@ -1,13 +1,13 @@
 version: 2.1
 jobs:
-  py_tests:
+  run_tests:
     docker:
-      - image: circleci/python:2.7.0
+      - image: circleci/python:3.7.4
     steps:
       - checkout
       - run:
-          name: Install Dependencies
-        command: |
+          name: Install Python Dependencies
+          command: |
             echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
             pip install --user -r requirements.txt
       - run:
@@ -21,4 +21,4 @@ jobs:
 workflows:
   build_test:
     jobs:
-      - py_tests
+      - run_tests
