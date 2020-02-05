@@ -23,6 +23,7 @@ jobs:
       - store_artifacts:
           path: test-reports
   deploy:
+    jobs:
       - aws-code-deploy/deploy:
           application-name: benchsci
           deployment-group: benchsci-group
