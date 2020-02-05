@@ -32,7 +32,7 @@ jobs:
           command: |
             pip3 install awscli --upgrade --user
             aws s3 ls
-            aws deploy create-deployment-group --application-name benchsci --deployment-group-name benchsci-group --deployment-config-name CodeDeployDefault.AllAtOnce --service-role-arn arn:aws:iam::764784637549:role/deployrole --s3-location bucket=benchsci-test,bundleType=zip,key=samples/latest/SampleApp_Linux.zip
+            aws deploy create-deployment-group --application-name benchsci --deployment-group-name benchsci-group --deployment-config-name CodeDeployDefault.AllAtOnce --service-role-arn arn:aws:iam::764784637549:role/deployrole --s3-location bucket=aws-codedeploy-us-east-1,bundleType=zip,key=samples/latest/SampleApp_Linux.zip
 workflows:
   build_test:
     jobs:
