@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  aws-code-deploy: circleci/aws-code-deploy@x.y.z
+
 jobs:
   run_tests:
     docker:
