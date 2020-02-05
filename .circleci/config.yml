@@ -18,7 +18,16 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
+  - deploy:
+          name: AWS Deployment
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "release" ]; then
+              ./env/bin/aws deploy create-deployment --application-name benchsci --deployment-group-name benchsci-group --region us-east-1 --github-location repository=hamza15/CircleCI-Terraform-Python,commitId=$CIRCLE_SHA1
+            fi    
 workflows:
   build_test:
     jobs:
       - run_tests
+      - deploy
+      
+      
