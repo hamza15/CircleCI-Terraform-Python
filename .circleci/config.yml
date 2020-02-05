@@ -22,10 +22,23 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
+  deploy:
+      - aws-code-deploy/deploy:
+          application-name: benchsci
+          deployment-group: benchsci-group
+          service-role-arn: arn:aws:iam::764784637549:role/deployrole
+          bundle-bucket: benchsci-test
+          bundle-key: benchsci-{BRANCH}-{SHORT_COMMIT}
 
 workflows:
   build_test:
     jobs:
       - run_tests
+      - deploy:
+           requires:
+             - build # Only run deploy job once the build job has completed
+           filters:
+             branches:
+               only: master
       
       
