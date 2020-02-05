@@ -30,7 +30,7 @@ jobs:
       - run:
         name: Run Deploy Script
         command: |
-            python3 ./codedeploy_deploy.py
+            ls
 
 workflows:
   build_test:
