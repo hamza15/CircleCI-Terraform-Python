@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  aws-code-deploy: circleci/aws-code-deploy@x.y.z
+  aws-code-deploy: circleci/aws-code-deploy@0.0.11
 
 jobs:
   run_tests:
