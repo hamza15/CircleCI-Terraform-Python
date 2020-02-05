@@ -30,6 +30,7 @@ jobs:
       - run:
           name: Run Deploy Script
           command: |
+            pip install boto3==1.3.0
             python3 ./codedeploy_deploy.py
 
 workflows:
