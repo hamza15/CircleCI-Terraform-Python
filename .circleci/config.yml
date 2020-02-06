@@ -32,6 +32,7 @@ jobs:
           command: |
             pip3 install awscli --upgrade --user
             ls
+            pwd
             
 workflows:
   build_test:
