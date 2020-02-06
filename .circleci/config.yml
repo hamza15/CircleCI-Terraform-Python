@@ -31,7 +31,6 @@ jobs:
           name: Run Deploy Script
           command: |
             pip3 install awscli --upgrade --user
-            pip3 install boto3==1.3.0 --user
             sudo killall -9 apt-get || true && sudo apt-get update && sudo apt-get install -y zip
             zip -r deployment.$(date +%y%m%d_%H%M).zip *
             aws s3 cp deployment.$(date +%y%m%d_%H%M).zip s3://benchsci-test/
