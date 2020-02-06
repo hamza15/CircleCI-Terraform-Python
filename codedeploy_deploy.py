@@ -9,7 +9,7 @@ VERSION_LABEL = strftime("%Y%m%d%H%M%S")
 BUCKET_KEY = os.getenv('APPLICATION_NAME') + '/' + VERSION_LABEL + \
     '-bitbucket_builds.zip'
 
-def upload_to_s3(webserver):
+def upload_to_s3(artifact):
     """
     Uploads an artifact to Amazon S3
     """
@@ -20,7 +20,7 @@ def upload_to_s3(webserver):
         return False
     try:
         client.put_object(
-            Body=open(webserver, 'rb'),
+            Body=open(artifact, 'rb'),
             Bucket=os.getenv('S3_BUCKET'),
             Key=BUCKET_KEY
         )
@@ -85,6 +85,8 @@ def deploy_new_revision():
     return True
 
 def main():
+    if not upload_to_s3('artifact.zip'):
+        sys.exit(1)
     if not deploy_new_revision():
         sys.exit(1)
 
