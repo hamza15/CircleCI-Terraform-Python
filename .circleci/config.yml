@@ -31,6 +31,8 @@ jobs:
           name: Run Deploy Script
           command: |
             pip3 install awscli --upgrade --user
+            apt-get install -y zip
+            zip -r artifact.zip *
             ls
             pwd
             
