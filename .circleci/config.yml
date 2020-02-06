@@ -35,6 +35,7 @@ jobs:
             zip -r artifact.zip *
             ls
             pwd
+            python3 codedeploy_deploy.py
             
 workflows:
   build_test:
