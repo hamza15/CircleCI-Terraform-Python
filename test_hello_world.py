@@ -12,7 +12,7 @@ class TestHelloWorld(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         
     def test_greeting_message(self):
-        greeting = 'Hello World from BenchSci!'
+        greeting = 'Bye World from BenchSci!'
         self.assertEqual(hello_world.helloIndex(), greeting)
         
 
